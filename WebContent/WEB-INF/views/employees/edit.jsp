@@ -3,7 +3,7 @@
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
         <c:choose>
-            <c:when test="${employee != null }">>
+            <c:when test="${employee != null }">
                 <h2>id : ${employee.id} の従業員情報 編集ページ</h2>
                 <p> (パスワードは変更する場合のみ入力してください) </p>
                 <form method="POST" action="<c:url value='/employees/update' />">
@@ -11,12 +11,12 @@
                 </form>
 
 
-                <p><a href="#" onclick="confirmDestoroy();">この従業員を削除する</a></p>
+                <p><a href="#" onclick="confirmDestroy();">この従業員を削除する</a></p>
                 <form method="POST" action="<c:url value='/employees/destroy' />">
                     <input type="hidden" name="_token" value="${_token}" />
                 </form>
                 <script>
-                function confimDestroy() {
+                function confirmDestroy() {
                     if(confirm("本当に削除してもよろしいですか？")) {
                         document.forms[1].submit();
                     }
