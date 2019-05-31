@@ -36,8 +36,8 @@ public class EmployeeValidator {
         }
 
         if(code_duplicate_check_flag) {
-            EntityManager em =DBUtil.createEntityManager();
-            long employees_count = (long)em.createNamedQuery("checkRegisterCode",Long.class)
+            EntityManager em = DBUtil.createEntityManager();
+            long employees_count = (long)em.createNamedQuery("checkRegisteredCode",Long.class)
                                             .setParameter("code", code)
                                               .getSingleResult();
             em.close();
@@ -51,7 +51,7 @@ public class EmployeeValidator {
 
     private static String _validateName(String name) {
         if(name == null || name.equals("")) {
-            return "姉妹を入力してください";
+            return "氏名を入力してください";
         }
         return "";
     }

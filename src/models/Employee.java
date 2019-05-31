@@ -43,7 +43,7 @@ public class Employee {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "password", length = 64, nullable = true)
+    @Column(name = "password", length = 64, nullable = false)
     private String password;
 
     @Column(name = "admin_flag", nullable = false)
@@ -114,7 +114,7 @@ public class Employee {
         this.updated_at = updated_at;
     }
 
-    public Integer getDalete_flag() {
+    public Integer getDelete_flag() {
         return delete_flag;
     }
 
