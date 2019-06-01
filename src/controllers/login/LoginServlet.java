@@ -52,7 +52,7 @@ public class LoginServlet extends HttpServlet {
         Boolean check_result = false;
 
         String code = request.getParameter("code");
-        String plain_pass = request.getParameter("passward");
+        String plain_pass = request.getParameter("password");
 
         Employee e = null;
 
