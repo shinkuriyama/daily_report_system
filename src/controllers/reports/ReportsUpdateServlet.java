@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.Report;
+import models.validators.ReportValidator;
 import utils.DBUtil;
 
 /**
@@ -46,7 +47,7 @@ public class ReportsUpdateServlet extends HttpServlet {
             r.setContent(request.getParameter("content"));
             r.setUpdated_at(new Timestamp(System.currentTimeMillis()));
 
-            List<String> errors = ReportValidate(r);
+            List<String> errors = ReportValidator.validate(r);
             if(errors.size() > 0) {
                 em.close();
 
@@ -69,9 +70,6 @@ public class ReportsUpdateServlet extends HttpServlet {
         }
     }
 
-    private List<String> ReportValidate(Report r) {
-        // TODO 自動生成されたメソッド・スタブ
-        return null;
-    }
+
 
 }
