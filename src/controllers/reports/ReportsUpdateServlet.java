@@ -42,7 +42,16 @@ public class ReportsUpdateServlet extends HttpServlet {
 
             Report r = em.find(Report.class, (Integer)(request.getSession().getAttribute("report_id")));
 
-            r.setReport_date(Date.valueOf(request.getParameter("report_date")));
+            String reportDateString = request.getParameter("report_date");
+            Date reportDate;
+
+            if ( reportDateString != null && !"".equals(reportDateString)) {
+                reportDate = Date.valueOf(reportDateString);
+            } else {
+                reportDate = new Date(System.currentTimeMillis());
+                }
+            r.setReport_date(reportDate);
+
             r.setTitle(request.getParameter("title"));
             r.setContent(request.getParameter("content"));
             r.setUpdated_at(new Timestamp(System.currentTimeMillis()));
